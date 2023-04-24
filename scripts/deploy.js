@@ -12,17 +12,41 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
 
-  const KZC = await hre.ethers.getContractFactory("KZC");
-  const kzc = await KZC.deploy(unlockTime, { value: lockedAmount });
+  const contractFactory = await hre.ethers.getContractFactory("KZC");
+  const contract = await contractFactory.deploy(unlockTime, { value: lockedAmount });
 
-  await kzc.deployed();
+  await contract.deployed();
 
   console.log(
     `Lock with ${ethers.utils.formatEther(
       lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${kzc.address}`
+    )}ETH and unlock timestamp ${unlockTime} deployed to ${contract.address}`
   );
+
+  console.log(network.config);
+
+  if (network.config.chainId == 97) {
+    contract.deployTransaction.wait(6);
+    verify(contract.address, []);
+  }
+
 }
+
+async function verify(contractAddress, arguments) {
+  try {
+    await run("verify:verify", {
+      address: contractAddress,
+      constructorArguments: arguments,
+    });
+  } catch (e) {
+    if (e.message.toLowerCase.include("already verified")) {
+      console.log("The contract already verified");
+    } else {
+      console.log(e);
+    }
+  }
+}
+
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
