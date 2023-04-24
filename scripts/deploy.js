@@ -39,7 +39,7 @@ async function verify(contractAddress, arguments) {
       constructorArguments: arguments,
     });
   } catch (e) {
-    if (e.message.toLowerCase.include("already verified")) {
+    if (e.message.toLowerCase().includes("already verified")) {
       console.log("The contract already verified");
     } else {
       console.log(e);
