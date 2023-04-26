@@ -9,4 +9,8 @@ contract KZC is ERC20 {
     function mint(address addr, uint256 amount) external {
         _mint(addr, amount);
     }
+
+    function decimals() public view virtual override returns (uint8) {
+        return 8;
+    }
 }

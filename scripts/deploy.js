@@ -13,7 +13,8 @@ async function main() {
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
 
   const contractFactory = await hre.ethers.getContractFactory("KZC");
-  const contract = await contractFactory.deploy(unlockTime, { value: lockedAmount });
+  //const contract = await contractFactory.deploy(unlockTime, { value: lockedAmount });
+  const contract = await contractFactory.deploy();
 
   await contract.deployed();
 
