@@ -1,4 +1,4 @@
-# Sample Hardhat Project
+# Project KZ Cash for BSC
 
 This project is contract for KZC wrapped token.
 
