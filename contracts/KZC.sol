@@ -13,8 +13,8 @@ contract KZC is ERC20 {
 
     function mint(address addr, uint256 amount) external {
         require(msg.sender == owner, "You aren't the owner");
-        uint256 amt_int = amount*10**_decimals;
-        _mint(addr, amt_int);
+        //uint256 amt_int = amount*10**_decimals;
+        _mint(addr, amount);
     }
 
     function decimals() public view virtual override returns (uint8) {
