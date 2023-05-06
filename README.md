@@ -1,8 +1,8 @@
 # Project KZ Cash for BSC
 
-This project is contract for KZC wrapped token.
+This project is contract for KZ Cash wrapped token.
 
-Contract deployed at 0x70Bc1117f859E76122AE60CD9F580B2e34aeEa26
+Contract deployed at 0xD5109ED6D66e2D1c92670Ab7b6c397e5F6cbb216
 
 Successfully verified contract KZC on BSCscan.
-https://testnet.bscscan.com/address/0x70Bc1117f859E76122AE60CD9F580B2e34aeEa26#code
+https://testnet.bscscan.com/address/0xD5109ED6D66e2D1c92670Ab7b6c397e5F6cbb216#code

@@ -7,13 +7,12 @@ contract KZC is ERC20 {
     uint8 _decimals = 8;
     address payable public owner;
 
-    constructor() ERC20("KZC wrapped", "KZC") {
+    constructor() ERC20("KZ Cash", "KZC") {
         owner = payable(msg.sender);
     }
 
     function mint(address addr, uint256 amount) external {
         require(msg.sender == owner, "You aren't the owner");
-        //uint256 amt_int = amount*10**_decimals;
         _mint(addr, amount);
     }
 
